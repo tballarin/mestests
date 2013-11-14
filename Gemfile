@@ -13,9 +13,3 @@ gemspec
 # To use debugger
 # gem 'debugger
 
-
-group :development do
-  gem 'better_errors', :git => 'http://github.com/charliesome/better_errors.git'
-  gem 'binding_of_caller', :git => 'http://github.com/banister/binding_of_caller.git'
-  gem 'sextant'
-end

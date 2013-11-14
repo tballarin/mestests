@@ -7,16 +7,16 @@ require "jezmail/version"
 Gem::Specification.new do |s|
   s.name        = "jezmail"
   s.version     = Jezmail::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Jezmail."
-  s.description = "TODO: Description of Jezmail."
+  s.authors     = ["Thomas ballarin"]
+  s.email       = ["tballarin@gmail.com"]
+  s.homepage    = ""
+  s.summary     = "Projet Test"
+  s.description = "En cours de dev"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 4.0.1"
+  s.add_dependency "rails", ">= 4"
 
   s.add_development_dependency "sqlite3"
 end

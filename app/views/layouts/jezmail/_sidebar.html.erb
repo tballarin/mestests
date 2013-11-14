@@ -1,0 +1,23 @@
+<%
+r = Random.rand(10...100)
+   if r <= 50
+     @etat = "success"
+   elsif r <= 80
+     @etat = "warning"
+   else
+     @etat = "danger"
+   end
+
+%>
+<strong>Utilisation :</strong>
+<div class="progress progress-striped active">
+  <div class="progress-bar progress-bar-<%=@etat%>" role="progressbar" aria-valuenow="<%=r%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=r%>%">
+    <span class="sr-only"><%=r%>% Complete</span>
+  </div>
+</div>
+<%= link_to "<button type='button' class='btn btn-default'>Boite de reception <span class='badge'>#{@nbmess}</span> </button>".html_safe, root_path,data: {disable_with: '<button type="button" class="btn btn-default">Loading ....</button>' }%><br><br>
+<%= link_to '<button type="button" class="btn btn-default">Envoyer un message</button>'.html_safe, send_path %><br><br>
+<%= link_to '<button type="button" class="btn btn-default">Message envoyés</button>'.html_safe, messagessent_path %><br><br>
+<%= link_to "<button type='button' class='btn btn-default'>Brouillon <span class='badge'>#{@messdraft}</span></button>".html_safe, draft_index_path %><br><br>
+<%= link_to '<button type="button" class="btn btn-default">Corbeille</button>'.html_safe, trash_index_path %><br><br><br><br>
+

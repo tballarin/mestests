@@ -1,8 +1,8 @@
 require 'rails'
 
-module Jquery
+module Jezmail
   module Generators
-    class JezmailGenerator < Rails::Generators::NamedBase
+    class InstallGenerator < Rails::Generators::NamedBase
       route 'mount Blorgh::Engine, at: "/blog"'
       rake 'railties:install:migrations'
       rake 'db:migrate'

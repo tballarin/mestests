@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%
+     if $nbnew == 0
+       @nbmess = ""
+     else
+       @nbmess = "#{$nbnew}"
+       @titre =  "(#{$nbnew})"
+     end
+
+     if $nbdraft == 0
+       @messdraft = ""
+     else
+       @messdraft = "#{$nbdraft}"
+     end
+  %>
+  <title>Webmail <%=@titre%></title>
+
+  <%= render 'layouts/jezmail/stylesheets' %>
+  <%= render 'layouts/jezmail/javascript' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= render 'layouts/jezmail/header' %>
+<table>
+  <tr>
+    <td class="sidebar">
+      <%= render 'layouts/jezmail/sidebar'%>
+    </td>
+    <td class="container" valign="top">
+      <% flash.each do |key, value| %>
+          <div class="alert alert-<%=key%> alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <%= value %>
+          </div>
+      <% end %>
+
+      <%= yield %>
+    </td>
+  </tr>
+</table>
+<br><br>
+<%= render 'layouts/jezmail/footer' %>
+</body>
+</html>

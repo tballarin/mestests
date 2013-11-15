@@ -1,0 +1,32 @@
+<div class="tablemail">
+
+<table border="1" width="100%">
+  <tr>
+    <td> </td>
+    <td width="25%">De</td>
+    <td width="50%">Sujet</td>
+    <td width="25%">Date</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <% @mailrecept.each do |mail|
+
+    if mail.unread == true
+      @maclasse = "unread"
+    else
+      @maclasse = "read"
+    end
+  %>
+      <tr class="<%=@maclasse%>">
+        <td><%= link_to details, mail, method: :get%></td>
+        <td><%= mail.from %></td>
+        <td><%= mail.subject %></td>
+        <td><%= time_ago_in_words(mail.date) %></td>
+        <td><%= link_to repondre, edit_inbox_path(mail) %></td>
+        <td><%= link_to corbeille, inbox_path(mail) , method: :delete, data: { confirm: 'Êtes vous sur de vouloir supprimer ce mail ?' }%></td>
+      </tr>
+<%end%>
+</table>
+
+</div>
+

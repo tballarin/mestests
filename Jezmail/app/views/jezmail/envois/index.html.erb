@@ -1,0 +1,20 @@
+<h1>Message Envoyé</h1> <br><br>
+
+<table class="tablemail" border="1" width="100%">
+  <tr>
+    <td> </td>
+    <td width="25%">A</td>
+    <td width="50%">Sujet</td>
+    <td width="25%">Date</td>
+    <td> </td>
+  </tr>
+  <% @mailenvoi.each do |email|%>
+      <tr>
+        <td><%= link_to details, email, method: :get %></td>
+        <td><%= email.to%></td>
+        <td><%= email.subject %></td>
+        <td><%= time_ago_in_words(email.created_at) %></td>
+        <td><%= link_to corbeille, email, method: :delete, data: {confirm: 'Êtes vous sur de vouloir supprimer ce mail ?' }%></td>
+      </tr>
+  <%end%>
+</table>
